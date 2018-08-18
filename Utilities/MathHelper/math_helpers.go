@@ -1,4 +1,4 @@
-package MathHelpers
+package MathHelper
 
 func Min(values []int) int {
 	min := values[0]

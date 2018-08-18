@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"../Utilities/LineReader"
-	"../Utilities/MathHelpers"
+	"../Utilities/MathHelper"
 	"strings"
 	"strconv"
 )
@@ -37,18 +37,18 @@ func findWrappingPaper(input string) int {
 	length, width, height := parsedLine[0], parsedLine[1], parsedLine[2]
 
 	sides := getSurfaceAreas(length, width, height)
-	smallestSide := MathHelpers.Min(getAreas(length, width, height))
+	smallestSide := MathHelper.Min(getAreas(length, width, height))
 	total := append(sides, smallestSide)
 
-	return  MathHelpers.Sum(total)
+	return  MathHelper.Sum(total)
 }
 
 func findRibbonLength(input string) int {
 	parsedInput := ParseInput(input)
 	length, width, height := parsedInput[0], parsedInput[1], parsedInput[2]
 
-	smallestPerimeter := MathHelpers.Min(getPerimeters(length, width, height))
-	volume := MathHelpers.Volume(length, width, height)
+	smallestPerimeter := MathHelper.Min(getPerimeters(length, width, height))
+	volume := MathHelper.Volume(length, width, height)
 
 	return smallestPerimeter + volume
 }
@@ -63,25 +63,25 @@ func ParseInput(input string) []int {
 }
 
 func getAreas(length, width, height int) []int {
-	areaOne := MathHelpers.Area(length, width)
-	areaTwo := MathHelpers.Area(width, height)
-	areaThree := MathHelpers.Area(length, height)
+	areaOne := MathHelper.Area(length, width)
+	areaTwo := MathHelper.Area(width, height)
+	areaThree := MathHelper.Area(length, height)
 
 	return []int {areaOne, areaTwo, areaThree}
 }
 
 func getSurfaceAreas(length, width, height int) []int {
-	sideOne := MathHelpers.SurfaceArea(length, width)
-	sideTwo := MathHelpers.SurfaceArea(width, height)
-	sideThree := MathHelpers.SurfaceArea(length, height)
+	sideOne := MathHelper.SurfaceArea(length, width)
+	sideTwo := MathHelper.SurfaceArea(width, height)
+	sideThree := MathHelper.SurfaceArea(length, height)
 
 	return []int {sideOne, sideTwo, sideThree}
 }
 
 func getPerimeters(length, width, height int) []int {
-	perimOne := MathHelpers.Perimeter(length, width)
-	perimTwo := MathHelpers.Perimeter(width, height)
-	perimThree := MathHelpers.Perimeter(length, height)
+	perimOne := MathHelper.Perimeter(length, width)
+	perimTwo := MathHelper.Perimeter(width, height)
+	perimThree := MathHelper.Perimeter(length, height)
 
 	return []int {perimOne, perimTwo, perimThree}
 }
