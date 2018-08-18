@@ -1,7 +1,45 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"../Utilities/LineReader"
+	)
 
 func main() {
-	fmt.Println("Hello World!")
+	input := LineReader.ReadLine("DayOne/input")
+	fmt.Println("The solution to part one is ", solvePartOne(input))
+	fmt.Println("The solution to part two is ", solvePartTwo(input))
+}
+
+func solvePartOne(input string) int {
+	floor := 0
+	for _, r := range input {
+		c := string(r)
+		if c == "(" {
+			floor++
+		} else {
+			floor--
+		}
+	}
+
+	return floor
+}
+
+func solvePartTwo(input string) int {
+	floor, position := 0, 1
+	for _, r := range input {
+		c := string(r)
+		if c == "(" {
+			floor++
+			position++
+		} else {
+			floor--
+			if floor == -1 {
+				return position
+			}
+			position++;
+		}
+	}
+
+	return position
 }
