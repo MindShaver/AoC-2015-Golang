@@ -33,7 +33,7 @@ func solvePartTwo(input []string) int {
 }
 
 func findWrappingPaper(input string) int {
-	parsedLine := ParseInput(input)
+	parsedLine := parseInput(input)
 	length, width, height := parsedLine[0], parsedLine[1], parsedLine[2]
 
 	sides := getSurfaceAreas(length, width, height)
@@ -44,7 +44,7 @@ func findWrappingPaper(input string) int {
 }
 
 func findRibbonLength(input string) int {
-	parsedInput := ParseInput(input)
+	parsedInput := parseInput(input)
 	length, width, height := parsedInput[0], parsedInput[1], parsedInput[2]
 
 	smallestPerimeter := MathHelper.Min(getPerimeters(length, width, height))
@@ -53,7 +53,7 @@ func findRibbonLength(input string) int {
 	return smallestPerimeter + volume
 }
 
-func ParseInput(input string) []int {
+func parseInput(input string) []int {
 	parsedLine := strings.Split(input, "x")
 	length, _ := strconv.Atoi(parsedLine[0])
 	width, _ := strconv.Atoi(parsedLine[1])
