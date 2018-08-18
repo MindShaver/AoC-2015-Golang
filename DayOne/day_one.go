@@ -14,8 +14,8 @@ func main() {
 func solvePartOne(input string) int {
 	floor := 0
 	for _, r := range input {
-		c := string(r)
-		if c == "(" {
+		direction := string(r)
+		if direction == "(" {
 			floor++
 		} else {
 			floor--
@@ -28,8 +28,8 @@ func solvePartOne(input string) int {
 func solvePartTwo(input string) int {
 	floor, position := 0, 1
 	for _, r := range input {
-		c := string(r)
-		if c == "(" {
+		direction := string(r)
+		if direction == "(" {
 			floor++
 			position++
 		} else {

@@ -3,6 +3,8 @@ package LineReader
 import (
 	"io/ioutil"
 	"fmt"
+	"os"
+	"bufio"
 )
 
 func ReadLine(fileName string) string {
@@ -12,4 +14,15 @@ func ReadLine(fileName string) string {
 	}
 
 	return string(b)
+}
+
+func LineByLine(fileName string) []string {
+	file, _ := os.Open(fileName)
+	fscanner := bufio.NewScanner(file)
+	var lines []string
+	for fscanner.Scan() {
+		lines = append(lines, fscanner.Text())
+	}
+
+	return lines
 }
