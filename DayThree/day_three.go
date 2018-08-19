@@ -8,7 +8,7 @@ import (
 func main() {
 	input := LineReader.ReadLine("DayThree/input")
 	fmt.Println("The solution to part one is ", solvePartOne(input))
-	fmt.Println("The solution to part one is ", solvePartTwo(input))
+	fmt.Println("The solution to part two is ", solvePartTwo(input))
 }
 
 func solvePartOne(input string) int {
